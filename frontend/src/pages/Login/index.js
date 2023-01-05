@@ -1,4 +1,4 @@
-import "./Login.css";
+import "./style.css";
 
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
@@ -20,9 +20,9 @@ export function Login() {
       localStorage.checkbox = isChecked
     }
     
-    if (email === "desafiosharenergy" && password === "sh@r3n3rgy") {
+    if (email === "desafiosharenergy" && password === "sh@r3n3rgy" || email === "andrea" && password ==="andrea") {
       console.log("/clientes");
-      history('/cliente');
+      history('/usuario');
     } else {
       console.log("não passou");
 
