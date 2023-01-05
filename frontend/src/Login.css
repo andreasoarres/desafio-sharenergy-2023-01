@@ -2,7 +2,7 @@ body {
     background-color: #e0fff0;
     font-size: 1.6rem;
     font-family: "Open Sans", sans-serif;
-    color: #365a7b;
+    color: hsl(209, 39%, 35%);
   }
   
   h2 {
@@ -48,9 +48,9 @@ body {
   input {
     display: block;
     box-sizing: border-box;
-    width: 100%;
+    /* width: 100%; */
     outline: none;
-    height: 60px;
+    /* height: 60px; */
     line-height: 60px;
     border-radius: 4px;
   }
@@ -102,6 +102,11 @@ body {
     background-color: #55d9a2;
     -webkit-transition: all 0.2s ease;
     transition: all 0.2s ease;
+  }
+  .form-check {
+    display: flex;
+    font-size: 12px;
+    margin-left: 25px;
   }
   
 

@@ -1,15 +1,23 @@
-import { useState } from "react";
 import "./Login.css";
 
-function Login() {
-  const [email, setEmail] = useState(null);
-  const [password, setPassword] = useState(null);
+import { useState } from "react";
+
+export function Login() {
+  const [email, setEmail] = useState(localStorage.email || null);
+  const [password, setPassword] = useState(localStorage.password || null);
+  const [isChecked, setIsChecked] = useState(localStorage.checkbox || true);
 
   const validaLogin = (event) => {
     event.preventDefault();
-
+   
+    if (isChecked && email !== ""){
+      localStorage.email = email
+      localStorage.password = password
+      localStorage.checkbox = isChecked
+    }
+    
     if (email === "desafiosharenergy" && password === "sh@r3n3rgy") {
-      console.log("passou");
+      console.log("/clientes");
     } else {
       console.log("não passou");
     }
@@ -36,7 +44,15 @@ function Login() {
             placeholder="Password"
             required
           />
-          <button type="submit" onClick={event => validaLogin(event)} className="btn-login">
+          <div className="form-check">
+            <input type="checkbox" checked={isChecked} onChange={event => setIsChecked(!isChecked)}/> 
+            <label>Lembrar-me</label>
+          </div>
+          <button
+            type="submit"
+            onClick={(event) => validaLogin(event)}
+            className="btn-login"
+          >
             Login
           </button>
         </form>
