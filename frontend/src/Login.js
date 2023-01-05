@@ -1,15 +1,19 @@
 import "./Login.css";
 
 import { useState } from "react";
+import { useNavigate } from 'react-router-dom';
+
 
 export function Login() {
   const [email, setEmail] = useState(localStorage.email || null);
   const [password, setPassword] = useState(localStorage.password || null);
   const [isChecked, setIsChecked] = useState(localStorage.checkbox || true);
+  const history = useNavigate();
 
   const validaLogin = (event) => {
     event.preventDefault();
-   
+  
+
     if (isChecked && email !== ""){
       localStorage.email = email
       localStorage.password = password
@@ -18,8 +22,10 @@ export function Login() {
     
     if (email === "desafiosharenergy" && password === "sh@r3n3rgy") {
       console.log("/clientes");
+      history('/cliente');
     } else {
       console.log("não passou");
+
     }
   };
 
